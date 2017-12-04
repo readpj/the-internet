@@ -1,0 +1,4 @@
+#Browsers
+browser=firefox
+webdriver.gecko.driver=C:/geckodriver/geckodriver.exe
+baseurl=http://the-internet.herokuapp.com
