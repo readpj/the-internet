@@ -5,6 +5,7 @@
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src/test/resources" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
@@ -86,7 +87,6 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.apache.logging.log4j:log4j-core:2.5" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.apache.velocity:velocity:1.7" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: commons-collections:commons-collections:3.2.1" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: commons-lang:commons-lang:2.4" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: velocity-tools:velocity-tools:1.4" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: net.lingala.zip4j:zip4j:1.3.2" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.apache.maven.plugins:maven-gpg-plugin:1.6" level="project" />
@@ -109,6 +109,11 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.sonatype.plexus:plexus-cipher:1.4" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: log4j:log4j:1.2.17" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.slf4j:slf4j-log4j12:1.7.21" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: commons-configuration:commons-configuration:1.10" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: commons-lang:commons-lang:2.6" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: com.vimalselvam:cucumber-extentsreport:1.1.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.apache.directory.studio:org.apache.commons.codec:1.8" level="project" />
+    <orderEntry type="library" name="Maven: net.sf.jt400:jt400:8.5" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: joda-time:joda-time:2.9.4" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.projectlombok:lombok:1.16.18" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.assertj:assertj-core:3.5.1" level="project" />
