@@ -31,11 +31,11 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-        <groupId>info.cukes</groupId>
-        <artifactId>cucumber-java</artifactId>
-        <version>${cucumber.version}</version>
-        <scope>test</scope>
-    </dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber.version}</version>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>info.cukes</groupId>
             <artifactId>cucumber-core</artifactId>
@@ -150,6 +150,29 @@
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>com.github.cukedoctor</groupId>
+                <artifactId>cukedoctor-maven-plugin</artifactId>
+                <version>1.0.6</version>
+                <configuration>
+                    <toc>left</toc>
+                    <disableFilter>true</disableFilter>
+                    <hideSummarySection>false</hideSummarySection>
+                    <hideFeaturesSection>false</hideFeaturesSection>
+                    <hideScenarioKeyword>true</hideScenarioKeyword>
+                    <hideTags>true</hideTags>
+                    <numbered>true</numbered>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>execute</goal>
+                        </goals>
+                        <phase>prepare-package</phase>
+                    </execution>
+                </executions>
+
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
