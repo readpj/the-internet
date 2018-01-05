@@ -25,4 +25,9 @@ public class Pages {
         return new DropDownPage(projectWebDriver.getWebDriver());
     }
 
+    public FormAuthenticationPage formAuthenticationPage() {
+        return new FormAuthenticationPage(projectWebDriver.getWebDriver());
+    }
+
+
 }
