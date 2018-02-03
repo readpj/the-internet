@@ -15,7 +15,7 @@ public class User {
         CONTEXT_MENU,
         DROPDOWN,
         HORIZONTAL_SLIDER,
-        FORM_AUTHENTICATION
+        DATA_TABLES, FORM_AUTHENTICATION
     }
 
     private Examples examples;

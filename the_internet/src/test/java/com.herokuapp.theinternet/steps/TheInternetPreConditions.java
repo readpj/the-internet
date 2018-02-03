@@ -23,4 +23,9 @@ public class TheInternetPreConditions {
     public void iWantToTestFormAuthentication() throws Throwable {
         currentUser.get().setExamples(User.Examples.FORM_AUTHENTICATION);
     }
+
+    @Given("^I want to test data tables$")
+    public void iWantToTestDataTables() throws Throwable {
+        currentUser.get().setExamples(User.Examples.DATA_TABLES);
+    }
 }
