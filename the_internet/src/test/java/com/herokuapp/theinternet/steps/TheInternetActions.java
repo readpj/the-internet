@@ -31,5 +31,14 @@ public class TheInternetActions {
         if (currentUser.get().getExamples() == User.Examples.DROPDOWN) {
             pages.indexPage().clickDropDown();
         }
+        if (currentUser.get().getExamples() == User.Examples.DATA_TABLES) {
+            pages.indexPage().clickSortableDataTables();
+        }
     }
+
+    @When("^I test the data table$")
+    public void iTestTheDataTable() throws Throwable {
+        selectAvailableExamples();
+    }
+
 }

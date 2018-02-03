@@ -29,5 +29,9 @@ public class Pages {
         return new FormAuthenticationPage(projectWebDriver.getWebDriver());
     }
 
+    public DataTablesPage dataTablesPage () {
+        return new DataTablesPage(projectWebDriver.getWebDriver());
+    }
+
 
 }

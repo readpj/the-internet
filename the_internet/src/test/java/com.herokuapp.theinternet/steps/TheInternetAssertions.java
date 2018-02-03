@@ -15,12 +15,28 @@ public class TheInternetAssertions {
 
     @Then("^the drop down page is displayed$")
     public void theDropDownPageIsDisplayed() throws Throwable {
-    pages.dropDownPage();
+        pages.dropDownPage();
     }
 
     @Then("^I can successfully login$")
     public void iCanSuccessfullyLogin() throws Throwable {
         assertThat("Unsuccessful login", pages.formAuthenticationPage().getSuccessfulLoginText(),
                 is("Welcome to the Secure Area. When you are done click logout below."));
+    }
+
+    @Then("^the data displayed in the table is correct$")
+    public void theDataDisplayedInTheTableIsCorrect() throws Throwable {
+        assertThat("Incorrect last name in the first table row",
+                pages.dataTablesPage().getTableRowData().get(0).getLastname(), is("Smith"));
+        assertThat("Incorrect first name in the first table row",
+                pages.dataTablesPage().getTableRowData().get(0).getFirstname(), is("John"));
+        assertThat("Incorrect email in the first table row",
+                pages.dataTablesPage().getTableRowData().get(0).getEmail(), is("jsmith@gmail.com"));
+        assertThat("Incorrect amount due in the first table row",
+                pages.dataTablesPage().getTableRowData().get(0).getAmountDue(), is("$50.00"));
+        assertThat("Incorrect website in the first table row",
+                pages.dataTablesPage().getTableRowData().get(0).getWebsite(), is("http://www.jsmith.com"));
+        assertThat("Incorrect first name in the fourth table row",
+                pages.dataTablesPage().getTableRowData().get(3).getFirstname(), is("Tim"));
     }
 }
