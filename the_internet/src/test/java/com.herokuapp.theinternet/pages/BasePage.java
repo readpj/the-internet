@@ -1,14 +1,21 @@
 package com.herokuapp.theinternet.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import static java.lang.String.format;
 
 public class BasePage {
 
     private final WebDriver webDriver;
-    private static final int DEFAULT_TIME_OUT = 20;
+    private static final int DEFAULT_TIME_OUT = 10;
 
     protected static final String PAGE_HEADING_IDENTIFIER = ".example>h3";
-    protected static final String PAGE_HEADING_XPATH_FORMAT = "//h3[text()='$s']";
+    private static final String SECTION_HEADING_XPATH = "//h3[contains(text(), '%s')]";
+    private static final String SECTION_HEADING_TWO_XPATH = "//h2[contains(text(), '%s')]";
+
 
     public BasePage(WebDriver driver) {
         this.webDriver = driver;
@@ -18,7 +25,23 @@ public class BasePage {
         return webDriver;
     }
 
-//    protected void waitForPageHeading(String sectionHeading) {
-//        waitForVisibilityOf(By.cssSelector(format(PAGE_HEADING_XPATH_FORMAT, sectionHeading)));
-//    }
+    protected void waitForSectionHeading(String sectionHeading) {
+        waitForVisibilityOf(By.xpath(format(SECTION_HEADING_XPATH, sectionHeading)));
+    }
+
+    protected void waitForSectionHeadingTwo(String sectionHeading) {
+        waitForVisibilityOf(By.xpath(format(SECTION_HEADING_TWO_XPATH, sectionHeading)));
+    }
+
+    protected void waitForVisibilityOf(By elementIdentifier, int timeoutInSeconds) {
+        new WebDriverWait(getDriver(), timeoutInSeconds).until(ExpectedConditions.visibilityOfElementLocated(elementIdentifier));
+    }
+
+    protected void waitForElementToBeClickable(By elementIdentifier) {
+        new WebDriverWait(getDriver(), DEFAULT_TIME_OUT).until(ExpectedConditions.elementToBeClickable(elementIdentifier));
+    }
+
+    protected void waitForVisibilityOf(By elementIdentifier) {
+        waitForVisibilityOf(elementIdentifier, DEFAULT_TIME_OUT);
+    }
 }

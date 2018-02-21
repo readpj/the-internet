@@ -28,4 +28,9 @@ public class TheInternetPreConditions {
     public void iWantToTestDataTables() throws Throwable {
         currentUser.get().setExamples(User.Examples.DATA_TABLES);
     }
+
+    @Given("^I want to test forgot password$")
+    public void iWantToTestForgotPassword() throws Throwable {
+        currentUser.get().setExamples(User.Examples.FORGOT_PASSWORD);
+    }
 }

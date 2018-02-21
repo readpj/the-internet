@@ -13,9 +13,12 @@ import static com.google.common.collect.Lists.newArrayList;
 public class DataTablesPage extends BasePage {
 
     private static final By EXAMPLE_ONE_TABLE_IDENTIFIER = By.xpath("//table[1]/tbody/tr");
+    private static final String SECTION_HEADING = "Data Tables";
+
 
     public DataTablesPage(WebDriver webDriver) {
         super(webDriver);
+        waitForSectionHeading(SECTION_HEADING);
     }
 
     public static List<String> getRowDataAsList(String tableRowText) {
