@@ -33,5 +33,11 @@ public class Pages {
         return new DataTablesPage(projectWebDriver.getWebDriver());
     }
 
+    public ForgotPasswordPage forgotPasswordPage() {
+        return new ForgotPasswordPage(projectWebDriver.getWebDriver());
+    }
 
+    public SecureAreaPage secureAreaPage() {
+        return new SecureAreaPage(projectWebDriver.getWebDriver());
+    }
 }

@@ -20,7 +20,7 @@ public class TheInternetAssertions {
 
     @Then("^I can successfully login$")
     public void iCanSuccessfullyLogin() throws Throwable {
-        assertThat("Unsuccessful login", pages.formAuthenticationPage().getSuccessfulLoginText(),
+        assertThat("Unsuccessful login", pages.secureAreaPage().getSuccessfulLoginText(),
                 is("Welcome to the Secure Area. When you are done click logout below."));
     }
 
@@ -38,5 +38,11 @@ public class TheInternetAssertions {
                 pages.dataTablesPage().getTableRowData().get(0).getWebsite(), is("http://www.jsmith.com"));
         assertThat("Incorrect first name in the fourth table row",
                 pages.dataTablesPage().getTableRowData().get(3).getFirstname(), is("Tim"));
+    }
+
+    @Then("^a reset password email is sent$")
+    public void aResetPasswordEmailIsSent() throws Throwable {
+        assertThat("No email confirmation",
+                pages.forgotPasswordPage().getEmailSentText(), is( "Your e-mail's been sent!"));
     }
 }
