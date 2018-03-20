@@ -40,4 +40,9 @@ public class Pages {
     public SecureAreaPage secureAreaPage() {
         return new SecureAreaPage(projectWebDriver.getWebDriver());
     }
+
+    public KeyPressesPage keyPressesPage() {
+        return new KeyPressesPage(projectWebDriver.getWebDriver());
+    }
+
 }

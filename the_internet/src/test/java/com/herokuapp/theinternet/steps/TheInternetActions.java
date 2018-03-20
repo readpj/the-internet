@@ -3,8 +3,15 @@ package com.herokuapp.theinternet.steps;
 import com.herokuapp.theinternet.domain.CurrentUser;
 import com.herokuapp.theinternet.domain.TheInternetCredentials;
 import com.herokuapp.theinternet.pages.Pages;
+import cucumber.api.DataTable;
 import cucumber.api.java.en.When;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.List;
+import java.util.Map;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 
 public class TheInternetActions {
 
@@ -39,6 +46,8 @@ public class TheInternetActions {
             case FORM_AUTHENTICATION:
                 pages.indexPage().clickFormAuthentication();
                 break;
+            case KEY_PRESSES:
+                pages.indexPage().clickKeyPresses();
         }
 
     }
@@ -59,5 +68,33 @@ public class TheInternetActions {
     @When("^I test the drop down page$")
     public void iTestTheDropDownPage() throws Throwable {
         selectAvailableExamples();
+    }
+
+    @When("^I press the \"([^\"]*)\" key$")
+    public void iPressTheKey(String key) throws Throwable {
+        selectAvailableExamples();
+        pages.keyPressesPage().enterKey(key);
+    }
+
+    @When("^I enter the credentials$")
+    public void iEnterTheCredentials(DataTable userCredentials) throws Throwable {
+        selectAvailableExamples();
+        List<List<String>> data = userCredentials.raw();
+        pages.formAuthenticationPage().enterUsername(data.get(0).get(0));
+        pages.formAuthenticationPage().enterPassword(data.get(0).get(1));
+        pages.formAuthenticationPage().clickLoginButton();
+    }
+
+    @When("^I enter the following credentials$")
+    public void iEnterTheFollowingCredentials(DataTable userCredentials) throws Throwable {
+        selectAvailableExamples();
+        for (Map<String, String> data : userCredentials.asMaps(String.class, String.class)) {
+            pages.formAuthenticationPage().enterUsername(data.get("Username"));
+            pages.formAuthenticationPage().enterPassword(data.get("Password"));
+            pages.formAuthenticationPage().clickLoginButton();
+            assertThat("Login was not invalid", pages.formAuthenticationPage().getInvalidPasswordText(),
+                    is("Your password is invalid!\n×"));
+            System.out.println(pages.formAuthenticationPage().getInvalidPasswordText());
+        }
     }
 }

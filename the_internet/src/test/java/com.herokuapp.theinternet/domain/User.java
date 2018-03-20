@@ -15,7 +15,7 @@ public class User {
         CONTEXT_MENU,
         DROPDOWN,
         HORIZONTAL_SLIDER,
-        DATA_TABLES, FORGOT_PASSWORD, FORM_AUTHENTICATION
+        DATA_TABLES, FORGOT_PASSWORD, KEY_PRESSES, FORM_AUTHENTICATION
     }
 
     private Examples examples;

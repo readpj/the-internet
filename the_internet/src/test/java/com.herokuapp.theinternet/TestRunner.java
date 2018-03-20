@@ -22,7 +22,7 @@ import static org.apache.log4j.helpers.LogLog.error;
 @CucumberOptions(
         glue = ("com/herokuapp/theinternet/steps"),
         features = {"src/test/resources/com.herokuapp.theinternet"},
-        tags = "@form_authentication",
+        tags = "@form_authentication,@data_tables,@forgot_password,@key_presses,@drop_down",
         plugin = {
                 "pretty",
                 "com.cucumber.listener.ExtentCucumberFormatter:output/the-internet/Report.html",

@@ -10,6 +10,7 @@ public class IndexPage extends BasePage{
     private static final By FORM_AUTHENTICATION_LINK = By.linkText("Form Authentication");
     private static final By SORTABLE_DATA_TABLES_LINK = By.linkText("Sortable Data Tables");
     private static final By FORGOT_PASSWORD_LINK = By.linkText("Forgot Password");
+    private static final By KEY_PRESSES_LINK = By.linkText("Key Presses");
 
     public IndexPage(WebDriver webDriver, String baseURL) {
         super(webDriver);
@@ -30,6 +31,9 @@ public class IndexPage extends BasePage{
     }
     public void clickForgotPassword() {
         getDriver().findElement(FORGOT_PASSWORD_LINK).click();
+    }
+    public void clickKeyPresses() {
+        getDriver().findElement(KEY_PRESSES_LINK).click();
     }
 
 }
