@@ -33,4 +33,9 @@ public class TheInternetPreConditions {
     public void iWantToTestForgotPassword() throws Throwable {
         currentUser.get().setExamples(User.Examples.FORGOT_PASSWORD);
     }
+
+    @Given("^I want to test key presses$")
+    public void iWantToTestKeyPresses() throws Throwable {
+        currentUser.get().setExamples(User.Examples.KEY_PRESSES);
+    }
 }

@@ -22,6 +22,8 @@ public class TheInternetAssertions {
     public void iCanSuccessfullyLogin() throws Throwable {
         assertThat("Unsuccessful login", pages.secureAreaPage().getSuccessfulLoginText(),
                 is("Welcome to the Secure Area. When you are done click logout below."));
+        assertThat("Secure bar text incorrect", pages.secureAreaPage().getSecureAreaText(),
+                is("You logged into a secure area!\n×"));
     }
 
     @Then("^the data displayed in the table is correct$")
@@ -43,6 +45,11 @@ public class TheInternetAssertions {
     @Then("^a reset password email is sent$")
     public void aResetPasswordEmailIsSent() throws Throwable {
         assertThat("No email confirmation",
-                pages.forgotPasswordPage().getEmailSentText(), is( "Your e-mail's been sent!"));
+                pages.forgotPasswordPage().getEmailSentText(), is("Your e-mail's been sent!"));
+    }
+
+    @Then("^the \"([^\"]*)\" key is displayed$")
+    public void theKeyIsDisplayed(String key) throws Throwable {
+        assertThat("You didn't press " + key, pages.keyPressesPage().getEnteredKey(), is("You entered: " + key));
     }
 }

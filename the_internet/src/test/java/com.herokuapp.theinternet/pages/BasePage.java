@@ -25,6 +25,8 @@ public class BasePage {
         return webDriver;
     }
 
+    protected String getElementText(By identifier){return getDriver().findElement(identifier).getText();}
+
     protected void waitForSectionHeading(String sectionHeading) {
         waitForVisibilityOf(By.xpath(format(SECTION_HEADING_XPATH, sectionHeading)));
     }
